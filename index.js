@@ -1,6 +1,14 @@
 // Example express application adding the parse-server module to expose Parse
 // compatible API routes.
 
+const https = require('https');
+const fs = require('fs');
+
+const credentials = {
+  key: fs.readFileSync('key.pem'),
+  cert: fs.readFileSync('cert.pem')
+};
+
 const express = require('express');
 const ParseServer = require('parse-server').ParseServer;
 const ParseDashboard = require('parse-dashboard');
@@ -66,7 +74,7 @@ app.get('/test', function (req, res) {
 
 const port = process.env.PORT || 443;
 
-  const httpServer = require('http').createServer(app);
+  const httpServer = https.createServer(credentials, app);
   httpServer.listen(port, function () {
     console.log('parse-backend running on port ' + port + '.');
   });
