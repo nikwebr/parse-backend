@@ -75,5 +75,5 @@ const port = process.env.PORT || 443;
 
 module.exports = {
   app,
-  config,
+  ysnditBilling_config,
 };
