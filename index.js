@@ -40,7 +40,14 @@ const mountPath = process.env.PARSE_MOUNT || '/api';
 const options = { allowInsecureHTTP: false };
 
 const dashboard = new ParseDashboard({
-	// Parse Dashboard settings
+	"apps": [
+    {
+      "serverURL": "https://localhost:443/api",
+      "appId": "ysnditBilling",
+      "masterKey": "N29aB2U49MoCNmBCS7JC1mPARDYmcKow71W9Y0sgVY1AKFcMjLk4IUAx9XEghPhKq1uuS4FMY7b1O6EMavlgwMWQhXnPbLjcug8n",
+      "appName": "ysnditBilling"
+    }
+  ]
 }, options);
 
 // make the Parse Dashboard available at /dashboard
