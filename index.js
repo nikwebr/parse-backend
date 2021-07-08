@@ -25,7 +25,7 @@ const ysnditBilling_config = {
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'ysnditBilling',
   masterKey: process.env.MASTER_KEY || 'N29aB2U49MoCNmBCS7JC1mPARDYmcKow71W9Y0sgVY1AKFcMjLk4IUAx9XEghPhKq1uuS4FMY7b1O6EMavlgwMWQhXnPbLjcug8n', //Add your master key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'https://localhost:443/api', // Don't forget to change to https if needed
+  serverURL: process.env.SERVER_URL || 'https://159.69.177.168:443/api', // Don't forget to change to https if needed
   liveQuery: {
     classNames: ['Posts', 'Comments'], // List of classes to support for query subscriptions
   },
@@ -50,7 +50,7 @@ const options = { allowInsecureHTTP: false };
 const dashboard = new ParseDashboard({
 	"apps": [
     {
-      "serverURL": "https://localhost:443/api",
+      "serverURL": "https://159.69.177.168:443/api",
       "appId": "ysnditBilling",
       "masterKey": "N29aB2U49MoCNmBCS7JC1mPARDYmcKow71W9Y0sgVY1AKFcMjLk4IUAx9XEghPhKq1uuS4FMY7b1O6EMavlgwMWQhXnPbLjcug8n",
       "appName": "ysnditBilling"
