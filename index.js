@@ -55,7 +55,14 @@ const dashboard = new ParseDashboard({
       "masterKey": "N29aB2U49MoCNmBCS7JC1mPARDYmcKow71W9Y0sgVY1AKFcMjLk4IUAx9XEghPhKq1uuS4FMY7b1O6EMavlgwMWQhXnPbLjcug8n",
       "appName": "ysnditBilling"
     }
-  ]
+  ],
+	"users": [
+    {
+      "user":"admin",
+      "pass":"$2y$12$Al3tBePuiSea9eVgYKFcWefgG70PwkdqCUlJiJPz6RBdT4N.qtlJi"
+    }
+		],
+	"useEncryptedPasswords": true
 }, options);
 
 // make the Parse Dashboard available at /dashboard
