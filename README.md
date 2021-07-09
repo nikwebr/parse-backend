@@ -19,6 +19,7 @@ Fork using the [parse-server](https://github.com/ParsePlatform/parse-server) mod
 ## Prepare Installation
 1. Update Ubuntu packet manager: <code>apt-get update</code>
 2. Upgrade the Ubuntu packages already installed: <code>apt-get upgrade</code>
+3. Install git: <code>apt-get install git</code>
 
 ## Install MongoDB
 1. Install MongoDB. By default, MongoDB is available in the Ubuntu 20.04 default repository: <code>apt-get install mongodb-server -y</code>
@@ -34,32 +35,15 @@ Fork using the [parse-server](https://github.com/ParsePlatform/parse-server) mod
      CGroup: /system.slice/mongodb.service
              └─718 /usr/bin/mongod --unixSocketPrefix=/run/mongodb --config /etc/mongodb.conf
 
-Nov 03 15:43:50 scw-friendly-edison systemd[1]: Started An object/document-oriented database.</code
+Nov 03 15:43:50 scw-friendly-edison systemd[1]: Started An object/document-oriented database.</code>
+
+## Install NodeJS
+1. Add an external repository for the required version of NodeJS. Make sure to replace lts by the lastest node runtime: <code>curl -sL https://deb.nodesource.com/setup_lts.x | bash -</code>
+2. Install NodeJS: <code>apt-get install nodejs -y</code>
+3. Verify the NodeJS version: <code>node --version</code>
 
 
 
-
-
-
-* Make sure you have at least Node 4.3. `node --version`
-* Clone this repo and change directory to it.
-* `npm install`
-* Install mongo locally using http://docs.mongodb.org/master/tutorial/install-mongodb-on-os-x/
-* Run `mongo` to connect to your database, just to make sure it's working. Once you see a mongo prompt, exit with Control-D
-* Run the server with: `npm start`
-* By default it will use a path of /parse for the API routes.  To change this, or use older client SDKs, run `export PARSE_MOUNT=/1` before launching the server.
-* You now have a database named "dev" that contains your Parse data
-* Install ngrok and you can test with devices
-
-## Helpful Scripts
-These scripts can help you to develop your app for Parse Server:
-
-* `npm run watch` will start your Parse Server and restart if you make any changes.
-* `npm run lint` will check the linting of your cloud code, tests and `index.js`, as defined in `.eslintrc.json`.
-* `npm run lint-fix` will attempt fix the linting of your cloud code, tests and `index.js`.
-* `npm run prettier` will help improve the formatting and layout of your cloud code, tests and `index.js`, as defined in `.prettierrc`.
-* `npm run test` will run any tests that are written in `/spec`.
-* `npm run coverage` will run tests and check coverage. Output is available in the `/coverage` folder.
 
 # Using Parse Server
 
