@@ -6,8 +6,8 @@ const https = require('https');
 const fs = require('fs');
 
 const credentials = {
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')
+  key: fs.readFileSync('server.key'),
+  cert: fs.readFileSync('server.cert')
 };
 
 const express = require('express');
