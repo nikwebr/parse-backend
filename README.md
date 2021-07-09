@@ -18,10 +18,29 @@ Fork using the [parse-server](https://github.com/ParsePlatform/parse-server) mod
 
 ## Prepare Installation
 1. Update Ubuntu packet manager: <code>apt-get update</code>
+2. Upgrade the Ubuntu packages already installed: <code>apt-get upgrade</code>
 
 ## Install MongoDB
+1. Install MongoDB. By default, MongoDB is available in the Ubuntu 20.04 default repository: <code>apt-get install mongodb-server -y</code>
+2. Verify MongoDB status: <code>systemctl status mongodb</code>
+3. which returns:
+<code>● mongodb.service - An object/document-oriented database
+     Loaded: loaded (/lib/systemd/system/mongodb.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2020-11-03 15:43:50 UTC; 22s ago
+       Docs: man:mongod(1)
+   Main PID: 718 (mongod)
+      Tasks: 23 (limit: 4915)
+     Memory: 42.2M
+     CGroup: /system.slice/mongodb.service
+             └─718 /usr/bin/mongod --unixSocketPrefix=/run/mongodb --config /etc/mongodb.conf
 
-2. 
+Nov 03 15:43:50 scw-friendly-edison systemd[1]: Started An object/document-oriented database.</code
+
+
+
+
+
+
 * Make sure you have at least Node 4.3. `node --version`
 * Clone this repo and change directory to it.
 * `npm install`
