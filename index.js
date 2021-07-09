@@ -25,9 +25,9 @@ if (!databaseUri) {
 const ysnditBilling_config = {
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
-  appId: process.env.APP_ID || 'ysnditBilling',
-  masterKey: process.env.MASTER_KEY || 'N29aB2U49MoCNmBCS7JC1mPARDYmcKow71W9Y0sgVY1AKFcMjLk4IUAx9XEghPhKq1uuS4FMY7b1O6EMavlgwMWQhXnPbLjcug8n', //Add your master key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'https://159.69.177.168:443/api', // Don't forget to change to https if needed
+  appId: process.env.APP_ID || 'YOUR-APP-ID',
+  masterKey: process.env.MASTER_KEY || 'YOUR-MASTER-KEY', //Add your master key here. Keep it secret!
+  serverURL: process.env.SERVER_URL || 'https://YOUR-IP-ADDRESS:443/api', // Don't forget to change to https if needed
   liveQuery: {
     classNames: ['Posts', 'Comments'], // List of classes to support for query subscriptions
   },
@@ -36,16 +36,16 @@ const options = { allowInsecureHTTP: false };
 const dashboard = new ParseDashboard({
 	"apps": [
     {
-      "serverURL": "https://159.69.177.168:443/api",
-      "appId": "ysnditBilling",
-      "masterKey": "N29aB2U49MoCNmBCS7JC1mPARDYmcKow71W9Y0sgVY1AKFcMjLk4IUAx9XEghPhKq1uuS4FMY7b1O6EMavlgwMWQhXnPbLjcug8n",
-      "appName": "ysnditBilling"
+      "serverURL": "https://YOUR-IP-ADDRESS:443/api",
+      "appId": "YOUR-APP-ID",
+      "masterKey": "YOUR-MASTER-KEY",
+      "appName": "YOUR-CUSTOM-APP-NAME"
     }
   ],
 	"users": [
     {
       "user":"admin",
-      "pass":"$2y$12$Al3tBePuiSea9eVgYKFcWefgG70PwkdqCUlJiJPz6RBdT4N.qtlJi"
+      "pass":"YOUR-PASSWORD"
     }
 		],
 	"useEncryptedPasswords": true
@@ -67,12 +67,6 @@ app.use('/dashboard', dashboard);
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function (req, res) {
   res.redirect('https://nweber.de');
-});
-
-// There will be a test page available on the /test path of your server url
-// Remove this before launching your app
-app.get('/test', function (req, res) {
-  res.sendFile(path.join(__dirname, '/public/test.html'));
 });
 
 const port = process.env.PORT || 443;
