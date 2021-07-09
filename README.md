@@ -16,6 +16,12 @@ Fork using the [parse-server](https://github.com/ParsePlatform/parse-server) mod
 
 # Local Development
 
+## Prepare Installation
+1. Update Ubuntu packet manager: <code>apt-get update</code>
+
+## Install MongoDB
+
+2. 
 * Make sure you have at least Node 4.3. `node --version`
 * Clone this repo and change directory to it.
 * `npm install`
