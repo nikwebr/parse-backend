@@ -1,6 +1,6 @@
 # parse-backend <!-- omit in toc -->
 
-Fork using the [parse-server](https://github.com/ParsePlatform/parse-server) module on Express. Read the full [Parse Server Guide](https://docs.parseplatform.org/parse-server/guide/) for more information.
+Fork using the [parse-server](https://github.com/ParsePlatform/parse-server) v4.5.0 and [parse-dashboard](https://github.com/parse-community/parse-dashboard) module on Express. Read the full [Parse Server Guide](https://docs.parseplatform.org/parse-server/guide/) for more information.
 
 # Table of Contents <!-- omit in toc -->
 
@@ -17,9 +17,11 @@ Fork using the [parse-server](https://github.com/ParsePlatform/parse-server) mod
 # Local Development
 
 ## Prepare Installation
-1. Update Ubuntu packet manager: <code>apt-get update</code>
-2. Upgrade the Ubuntu packages already installed: <code>apt-get upgrade</code>
-3. Install git: <code>apt-get install git</code>
+1. Login as root to an Ubuntu 20.04 Server
+2. Update Ubuntu packet manager: <code>apt-get update</code>
+3. Upgrade the Ubuntu packages already installed: <code>apt-get upgrade</code>
+4. Install git: <code>apt-get install git</code>
+5. Add an non-root user used to run the Express app: <code>adduser runner</code>
 
 ## Install MongoDB
 1. Install MongoDB. By default, MongoDB is available in the Ubuntu 20.04 default repository: <code>apt-get install mongodb-server -y</code>
@@ -38,9 +40,18 @@ Fork using the [parse-server](https://github.com/ParsePlatform/parse-server) mod
 Nov 03 15:43:50 scw-friendly-edison systemd[1]: Started An object/document-oriented database.</code>
 
 ## Install NodeJS
-1. Add an external repository for the required version of NodeJS. Make sure to replace lts by the lastest node runtime: <code>curl -sL https://deb.nodesource.com/setup_lts.x | bash -</code>
+1. Add an external repository for the required version of NodeJS: <code>curl -sL https://deb.nodesource.com/setup_lts.x | bash -</code>
 2. Install NodeJS: <code>apt-get install nodejs -y</code>
 3. Verify the NodeJS version: <code>node --version</code>
+4. Allow ports 80 and 443 to be opened by other users than root: <code>setcap cap_net_bind_service=+ep /usr/bin/node</code>
+
+## Install Express app
+1. Login to the server as the non-root user "runner" created above
+2. Clone this repository: <code>git clone</code>
+3. Change in the work directory: <code>cd parse-backend</code>
+4. Install: <code>npm install</code>
+
+## Change Env Variables
 
 
 
