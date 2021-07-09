@@ -21,6 +21,7 @@ const databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
+
 const ysnditBilling_config = {
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
@@ -31,23 +32,7 @@ const ysnditBilling_config = {
     classNames: ['Posts', 'Comments'], // List of classes to support for query subscriptions
   },
 };
-// Client-keys like the javascript key or the .NET key are not necessary with parse-server
-// If you wish you require them, you can set them as options in the initialization above:
-// javascriptKey, restAPIKey, dotNetKey, clientKey
-
-const app = express();
-
-// Serve static assets from the /public folder
-app.use('/public', express.static(path.join(__dirname, '/public')));
-
-// Serve the Parse API on the /parse URL prefix
-const mountPath = process.env.PARSE_MOUNT || '/api';
-  const api = new ParseServer(ysnditBilling_config);
-  app.use(mountPath, api);
-
-
 const options = { allowInsecureHTTP: false };
-
 const dashboard = new ParseDashboard({
 	"apps": [
     {
@@ -66,12 +51,22 @@ const dashboard = new ParseDashboard({
 	"useEncryptedPasswords": true
 }, options);
 
+const app = express();
+
+// Serve static assets from the /public folder
+app.use('/public', express.static(path.join(__dirname, '/public')));
+
+// Serve the Parse API on the /parse URL prefix
+const mountPath = process.env.PARSE_MOUNT || '/api';
+  const api = new ParseServer(ysnditBilling_config);
+  app.use(mountPath, api);
+
 // make the Parse Dashboard available at /dashboard
 app.use('/dashboard', dashboard);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function (req, res) {
-  res.status(200).send('S02.NWEBER.DE Backend Server');
+  res.redirect('https://nweber.de');
 });
 
 // There will be a test page available on the /test path of your server url
